@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Development
+metadata: 
+  name: app-deploy-development 
+spec: 
+  replicas: 3 
+  selector: 
+    matchLabels: 
+      app: app-test 
+  template: 
+    metadata: 
+      labels: 
+        app: app-test 
+    spec: 
+      containers: 
+        - name: app-test-container 
+          image: app-test-image # Sử dụng tên và thẻ hình ảnh bạn đã xây dựng trước đó 
+          ports: 
+            - containerPort: 3000
